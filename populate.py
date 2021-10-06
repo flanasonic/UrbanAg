@@ -7,7 +7,7 @@ db_name = "UrbanAg.db"
 conn = sqlite3.connect(db_name)
 cursor = conn.cursor()
 
-# Let's make a function taht given a table
+# Let's make a function that given a table
 # name and a list of column names, will look
 # for a file called /data/table_name.csv
 # then open it up, and insert each row of the file
@@ -43,6 +43,7 @@ def populate_table(table_name):
         # the first field - this way we can avoid having to maintain
         # a list of ids in our csv data file - good because we can 
         # add rows to our csv file without re-numbering our ids
+        #Don't include id field in the CSV file since the script is taking care of it
         line.insert(0, id)
 
         # add this line to our list of rows
@@ -142,7 +143,7 @@ def populate_table(table_name):
     #conn.commit()
 
 # create a list of the tables we want to populate
-tables_to_populate = [ "company"]
+tables_to_populate = [ "company", "facility"]
 
 # loop over the list of tables_to_populate and call our function
 for table in tables_to_populate:

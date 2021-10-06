@@ -1,5 +1,5 @@
 
-CREATE TABLE methods (
+CREATE TABLE method (
     id           INTEGER PRIMARY KEY,
     type         TEXT,
     method       TEXT,

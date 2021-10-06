@@ -8,9 +8,8 @@ conn = sqlite3.connect(db_name)
 
 cursor = conn.cursor()
 
-# Create a function that - when called with a table name like
-#
-#  run_sql_script("create", "company")
+# Create a function that - when called with a table name like 
+# run_sql_script("create", "company")
 #
 # will go and open the sql/company/create_company.sql file
 # and run it
@@ -62,11 +61,8 @@ def run_sql_script(script_prefix, table_name):
 # we would like to create - in the order
 # we would like to crete them.
 tables = [
-    "company",
-    "customer",
-    "facility",
-    "methods",
-    "product"
+    "company", 
+    "facility"
 ]
 
 # loop through the list of table names
@@ -75,6 +71,8 @@ tables = [
 for table_name in tables:
     print(f"   dropping table {table_name} if it exists...")
     run_sql_script("drop", table_name)
+
+    
     print(f"   creating table {table_name}...")
     run_sql_script("create", table_name)
 
