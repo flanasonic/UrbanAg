@@ -1,6 +1,6 @@
 CREATE TABLE company (
     id INTEGER PRIMARY KEY,
-    company_name TEXT,
+    name TEXT,
     legal_name TEXT,
     website TEXT,
     statement TEXT,

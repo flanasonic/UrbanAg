@@ -1,6 +1,6 @@
 CREATE TABLE facility (
     id INTEGER PRIMARY KEY,
-    company_id   INTEGER REFERENCES company (id) ,
+    company_id   INTEGER REFERENCES company (id),
     company_name TEXT,
     primary_use TEXT,
     year_opened INTEGER,
