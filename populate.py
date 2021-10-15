@@ -2,7 +2,8 @@ import sqlite3
 from os.path import exists
 from csv import reader as csvreader
 
-db_name = "UrbanAg.db"
+#db_name = "UrbanAg.db"
+db_name = "C:/Users/Julie/git/UrbanAg/UrbanAg.db"
 
 conn = sqlite3.connect(db_name)
 cursor = conn.cursor()
@@ -18,14 +19,15 @@ def populate_table(table_name):
         print("HEY! {filename} does not exist!")
         return
     
-    file_handle = open(filename, "r");
+    #file_handle = open(filename, "r");
+    file_handle = open(filename, "r")
     file_lines = csvreader(file_handle)
 
     # create an empty list of rows - we'll push rows of data
     # to insert into our database here later
     rows = []
 
-    # create an id integer.  we'll increase this by one for
+    # create an id integer.we'll increase this by one for
     # each row and add it to the id column of our database
     # we'll start with 0 because the first line of our file
     # should be a "header" containing the names of the columns

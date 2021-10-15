@@ -1,19 +1,25 @@
 import sqlite3
 from os.path import exists
 
-db_name = "UrbanAg.db"
+#db_name = "UrbanAg.db"
+# Patrick - I changed this to absolute path because 
+# I started getting errors
+db_name = "C:/Users/Julie/git/UrbanAg/UrbanAg.db"
 
 # shorthand for db connection
+# create a "connection" to a sqlite database file
+# should create the file if it does not already exist
+# Note - the way it's written here - it will look for and create
+# the .db file in whatever folder the program is running in
 conn = sqlite3.connect(db_name)
 
 cursor = conn.cursor()
 
 # Create a function that - when called with a table name like 
 # run_sql_script("create", "company")
-#
 # will go and open the sql/company/create_company.sql file
 # and run it
-#
+
 def run_sql_script(script_prefix, table_name):
     # make us a filename path from the table name
     # we'll use a template string: 
@@ -51,7 +57,7 @@ def run_sql_script(script_prefix, table_name):
     #    then my new string will be "red Julie green Julie blue"
     # 
     # Here we just want to join the lines of our file together
-    # with nothing inbetween.  So we'll do
+    # with nothing in between.  So we'll do
     file_contents = ''.join(file_contents)
     # do it...
     cursor.execute(file_contents)
