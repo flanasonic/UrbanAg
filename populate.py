@@ -1,61 +1,69 @@
 import sqlite3
+
+# include the exists function from the os.path python module
 from os.path import exists
+
 from csv import reader as csvreader
 
-#db_name = "UrbanAg.db"
-db_name = "C:/Users/Julie/git/UrbanAg/UrbanAg.db"
+# assume db is in current working folder where script is running
+db_name = "./UrbanAg.db"
 
+# create a Connection object that represents our db
+# if the file exists, it will open it
+# if the file doesn't exist, it will create it
+# Note - the way it's written here, it will look for and create
+# the .db file in whatever folder the program is running in
 conn = sqlite3.connect(db_name)
+
+# create a Cursor object - we'll call its execute() method 
+# to perform SQL commands
 cursor = conn.cursor()
 
-# Let's make a function that given a table
-# name and a list of column names, will look
-# for a file called /data/table_name.csv
-# then open it up, and insert each row of the file
-# into the table referred to by table_name
+# create a function that given a table name and list of column 
+# names, will look for a file called /data/table_name.csv, then
+# open it up and insert each row of the file into the table 
+# referred to by table_name
+
 def populate_table(table_name):
+    # use an f-string to create a filename path from the table name
     filename = f"./data/{table_name}.csv"
+    # check if our file does not exist and
+    # if it does not, warn and exit our function
     if(not exists(filename)):
         print("HEY! {filename} does not exist!")
         return
     
-    #file_handle = open(filename, "r");
-    file_handle = open(filename, "r")
-    file_lines = csvreader(file_handle)
-
-    # create an empty list of rows - we'll push rows of data
-    # to insert into our database here later
-    rows = []
-
-    # create an id integer.we'll increase this by one for
-    # each row and add it to the id column of our database
-    # we'll start with 0 because the first line of our file
-    # should be a "header" containing the names of the columns
-    # so the first line with real data to insert will have 
-    # id = 1
-    id = 0
-
-    for line in file_lines:
+    # create a file object that points to our file
+    # another way to write the below - file_handle = open(filename, "r")
+    with open('filename', 'r') as file_handle:
+        # create an empty list of rows, later we'll push here the rows 
+        # of data we want to insert into our db
+        rows = []
+        # create an id integer, we'll increase it by 1 for each row and 
+        # add it to the id column of our db
+        # we start with 0 because the first line of our file should just be a 
+        # "header" containing the names of the columns
+        # so the first line with real data to insert will have id = 1
+        id = 0
+        file_lines = csvreader(file_handle)
+        for line in file_lines:
         # the line variable here corresponds to one line in the file
-        # (we're looping over the file_lines)
-        # each line is a list of the fields that were separated
-        # by commas in the file
-        #
-        # Let's add the value of our id to our line and make it
-        # the first field - this way we can avoid having to maintain
-        # a list of ids in our csv data file - good because we can 
-        # add rows to our csv file without re-numbering our ids
-        #Don't include id field in the CSV file since the script is taking care of it
-        line.insert(0, id)
+        # each line is a list of the fields that were separated by commas in 
+        # the file
+        # Let's add the value of our id to each line as the first field
+        # this lets us avoid having to maintain a list of ids in our csv data 
+        # file - good because we can add rows to our csv file without re-numbering 
+        # our ids
+        # Note - DON'T include id field in the CSV file since the script is taking care of it
+            line.insert(0, id)
 
         # add this line to our list of rows
-        # ... but first... sqlite will want us to give it a tuple later
-        # but line is a list here - so we'll convert our line to a tuple first
-        line = tuple(line)
-        rows.append(line)
+        # but first... we'll convert our line to a tuple because sqlite will want us to do this
+            line = tuple(line)
+            rows.append(line)
 
         # increment our id to the next number
-        id = id + 1
+            id = id + 1
 
 
     # the first line of our file has our header - with our 

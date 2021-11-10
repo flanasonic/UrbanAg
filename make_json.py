@@ -4,10 +4,12 @@ import sqlite3
 #db_name = "UrbanAg.db"
 db_name = "C:/Users/Julie/git/UrbanAg/UrbanAg.db"
 
-# shorthand for db connection
+# create a Connection object that represents the db
 conn = sqlite3.connect(db_name)
 conn.row_factory = sqlite3.Row
 
+# create a Cursor object, we will call its execute() 
+# method to perform SQL commands
 cursor = conn.cursor()
 
 def table_to_json(table_name):

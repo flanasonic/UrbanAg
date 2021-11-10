@@ -1,84 +1,55 @@
 import sqlite3
+
+# include the exists function from the os.path python module
 from os.path import exists
 
-#db_name = "UrbanAg.db"
-# Patrick - I changed this to absolute path because 
-# I started getting errors
-db_name = "C:/Users/Julie/git/UrbanAg/UrbanAg.db"
+# assume db is in current working folder where script is running
+db_name = "./UrbanAg.db"
 
-# shorthand for db connection
-# create a "connection" to a sqlite database file
-# should create the file if it does not already exist
-# Note - the way it's written here - it will look for and create
+# create a Connection object that represents our db
+# if the file exists, it will open it
+# if the file doesn't exist, it will create it
+# Note - the way it's written here, it will look for and create
 # the .db file in whatever folder the program is running in
 conn = sqlite3.connect(db_name)
 
+# create a Cursor object - we'll call its execute() method 
+# to perform SQL commands
 cursor = conn.cursor()
 
-# Create a function that - when called with a table name like 
-# run_sql_script("create", "company")
-# will go and open the sql/company/create_company.sql file
-# and run it
+# create a function that given a table name like "company" will 
+# go and open the sql/company/create_company.sql file and run it
 
 def run_sql_script(script_prefix, table_name):
-    # make us a filename path from the table name
-    # we'll use a template string: 
-    # https://realpython.com/python-string-formatting/#3-string-interpolation-f-strings-python-36
+    # use an f-string to create a filename path from the table name
     filename_to_open = f"./sql/{table_name}/{script_prefix}_{table_name}.sql"
-
-    # check if our file does not exist - warn and exit our function
-    # if the file does not exist
+    # check if our file does not exist and
+    # if it does not, warn and exit our function
     if (not exists(filename_to_open)):
         print(f"HEY! {filename_to_open} does not exist! ")
         return
 
-    # get a "handle" on the file ...
+    # create a file object that points to our file
     file_handle = open(filename_to_open, "r")
 
-    # extract all the sql goodness inside 
-    file_contents = file_handle.readlines()
-
-    # readlines() gave us a list of strings - one for
-    # eadch line in the file.  That's dumb, we want one
-    # string with the whole file in it.  So we need to join
-    # them together.  The bulit in string object has a join
-    # function that works like this...  
-    # 
-    #    given a string like...
-    # my_string = " Julie "  
-    #    (it's Julie with a space before and after)
-    #
-    #    and a list like 
-    # my_list = ['red', 'green', 'blue']
-    #
-    #    if we do 
-    # my_new_string = my_string.join(my_list)
-    #
-    #    then my new string will be "red Julie green Julie blue"
-    # 
-    # Here we just want to join the lines of our file together
-    # with nothing in between.  So we'll do
-    file_contents = ''.join(file_contents)
-    # do it...
+    # use .read() to read the contents and save the result to 
+    # a variable as a single string
+    file_contents = file_handle.read()
     cursor.execute(file_contents)
 
-
-# let's make a list of all the tables
-# we would like to create - in the order
-# we would like to crete them.
+# let's make a list of all the tables we would like to create
+# in the order we would like to create them
 tables = [
     "company", 
     "facility"
 ]
 
-# loop through the list of table names
-# and call the function that gets their
-# create_table script and runs it...
+# loop through the list of table names and call the function 
+# that gets their create_table script and runs it...
 for table_name in tables:
     print(f"   dropping table {table_name} if it exists...")
     run_sql_script("drop", table_name)
 
-    
     print(f"   creating table {table_name}...")
     run_sql_script("create", table_name)
 
