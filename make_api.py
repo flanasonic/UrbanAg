@@ -2,35 +2,35 @@ from flask import Flask
 import sqlite3
 
 ######################################
-# Prepare our Sqlite database for use
+# Prepare our Sqlite db for use
 
-# create a connection to our database
+# create a Connection object that represents our db
+# ?? Patrick ?? do we need this - "check_same_thread=False" ?
 conn = sqlite3.connect(db_name)
 
-# open a cursor
+# create a Cursor object
 cursor = conn.cursor()
 
 #####################################
-# Let's make a web service that reads 
-# from our database
-
-# Create a "Flask" object 
+# make a web service that reads from our db
+# create an instance of the Flask class
+# and save the object to a variable called "web_server"
+# Note - "the value of __name__ depends on how the script is being 
+# executed. If we're running it directly, then __name__ is equal to '__main__'. 
+# If the script is being imported as a module into another Python script, 
+# then __name__ would be equal to its filename."
 web_server = Flask(__name__)
 
-# This next line is an annotation - it "decorates" a function
-# here - meaning - let's "decorate" our function with extra
-# properties that we can't normally do when we write a function
-# Here, we're saying this function should be called when a browser
-# calls our webserver and gives the path "/companies" 
-# ... when our web server gets a request for /companies... call this
-# function
+# create a function called "getCompanies" that will return some HTM
+# Use the route() decorator to bind the URL path '/companies' to 
+# the getCompanies function, so when our web server gets a request for 
+# '/companies' this function will be called
+
 @web_server.route("/companies")
 def getCompanies():
     # Prepare a string variable with some HTML boilerplate
     # for a simple web page.
     html = "<html><head><title>"
-    # the += here is shorthand for "add this string on to the end"
-    # alt:  html = html + "whatever"
     html += "Indoor Farming Companies"
     html += "</title></head><body>"
     html += "<h1>Controlled Environment Agriculture Companies</h1>"
@@ -38,11 +38,10 @@ def getCompanies():
     # now let's call our database - issue a "select" from 
     # our companies table and get company names
     # we'll get the list of companies in the result variable
-    # I think results will be a list of Row objects
+    # ??? I think results will be a list of Row objects???
     results = cursor.execute("SELECT name, employees FROM companies")
 
     # results should look something like this:
-    #
     #           row  | contents
     #           0  | [ 'some name', 103   ] <-- array/list
     #           1  | [ 'another name', 20 ]
@@ -51,8 +50,8 @@ def getCompanies():
     # add some html to our response for an unordered list
     html += "<ul>"
 
-    # because we have a list of rows now - we can iterate 
-    # through them in a for loop and extract their goodness
+    # use a for loop to iterate through our list of rows and extract 
+    # their info
     for row in results:
         # add the field from each row to our html as a list item
         # Row objects also behave like lists - here the 0th item
@@ -66,6 +65,7 @@ def getCompanies():
     return html, 200, { 'Content-Type': 'text/html', "X-Julie": "awesome" }
 
 # I don't know what this does - copy paste from the flask example
+#??? Patrick - not sure abou this part ....????
 if __name__ == '__main__':
     # Run our web server
     web_server.run(debug=True)

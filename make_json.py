@@ -1,41 +1,44 @@
 import json
 import sqlite3 
 
-#db_name = "UrbanAg.db"
-db_name = "C:/Users/Julie/git/UrbanAg/UrbanAg.db"
+# assume db is in current working folder where script is running
+db_name = "./UrbanAg.db"
 
 # create a Connection object that represents the db
 conn = sqlite3.connect(db_name)
 conn.row_factory = sqlite3.Row
 
-# create a Cursor object, we will call its execute() 
-# method to perform SQL commands
+# create a Cursor object - we'll call its execute() method 
+# to perform SQL commandss
 cursor = conn.cursor()
 
 def table_to_json(table_name):
-    # Template string that adds our table name
-    # to a SQL statement string
+    # use an f-string to add our table name into a 
+    # SQL statement string
     sql = f"SELECT * FROM {table_name}"
 
-    # tell cursor to run the sql statement
+    # tell cursor to run the SQL statement
     cursor.execute(sql)
 
     # now fetch the data and save it in memory
     rows = cursor.fetchall()
 
-    # List to collect all the rows in
+    # make an empty list to collect all the rows
     rowarray_list = []
 
-    # Go through all the rows we SELECTed above
+    # go through all the rows selected above
     for row in rows:
         d=dict(zip(row.keys(), row))
         rowarray_list.append(d)
 
-    # Call the json thingy to turn the list of stuff
-    # from our table into a json string
+    # convert our rowarray_list to a json string
+    # using the json.dumps() function 
     json_data= json.dumps(rowarray_list)
 
-    # put the json string into a file
+    # save the json string into a file
+    #??? Patrick - am I correct that we are making an empty file here 
+    # called "rowarrays_file" and this variable name stays the same no
+    # matter what the table name is?? And then where does this json file get saved?
     rowarrays_file = f"{table_name}.json"
     file = open(rowarrays_file, 'w')
     file.write(json_data)
