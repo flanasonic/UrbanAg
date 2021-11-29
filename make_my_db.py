@@ -12,27 +12,27 @@ db_name = "./UrbanAg.db"
 def run_sql_script(script_prefix, table_name):
 
     # create a Connection object that represents our db
-    conn = sqlite3.connect(db_name)
+    with sqlite3.connect(db_name) as conn:
 
-    # create a Cursor object
-    cursor = conn.cursor()
+        # create a Cursor object
+        cursor = conn.cursor()
 
-    # use an f-string to create a filename path from the table name
-    filename_to_open = f"./sql/{table_name}/{script_prefix}_{table_name}.sql"
-    # check if our file does not exist
-    # if it does not exist, warn us and exit our function
-    if (not exists(filename_to_open)):
-        print(f"HEY! {filename_to_open} does not exist! ")
-        return
+        # use an f-string to create a filename path from the table name
+        filename_to_open = f"./sql/{table_name}/{script_prefix}_{table_name}.sql"
+        # check if our file does not exist
+        # if it does not exist, warn us and exit our function
+        if (not exists(filename_to_open)):
+            print(f"HEY! {filename_to_open} does not exist! ")
+            return
 
-    # create a file object that points to our file
-    # TODO: do we need to use "with open" here??
-    file_handle = open(filename_to_open, "r")
+        # create a file object that points to our file
+        # TODO: do we need to use "with open" here??
+        with open(filename_to_open, "r") as file_handle:
 
-    # use .read() to read the contents and save the result to 
-    # a variable as a single string
-    file_contents = file_handle.read()
-    cursor.execute(file_contents)
+            # use .read() to read the contents and save the result to 
+            # a variable as a single string
+            file_contents = file_handle.read()
+            cursor.execute(file_contents)
 
 # make a list of all the tables we would like to create
 # in the order we would like to create them
