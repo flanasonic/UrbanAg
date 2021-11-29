@@ -5,34 +5,27 @@ from os.path import exists
 
 from csv import reader as csvreader
 
-# assuming here that db is in current working folder where 
-# script is running
+# we are making the assumption here here that our db is in 
+# the current working folder where our script is running
 db_name = "./UrbanAg.db"
 
-# create a Connection object that represents our db
-# if the file exists, it will open it
-# if it doesn't exist, it will create it
-# Note - the way it's written here, it will look for and create
-# the .db file in whatever folder the program is running in
-conn = sqlite3.connect(db_name)
-
-# create a Cursor object - we'll call its execute() method 
-# to perform SQL commands
-cursor = conn.cursor()
-
-# create a function that given a table name and list of column names, 
-# will look for a file called /data/table_name.csv, then
-# open it up and insert each row of the CSV file into the SQL table 
-# referred to by table_name
-## ?? Patrick - not sure about this part "and list of column names"
+# create a function that given a table name, will look for a file 
+# called /data/table_name.csv, then open it up and insert each row 
+# of the CSV file into the SQL table referred to by table_name
 def populate_table(table_name):
+
+    # create a Connection object that represents our db
+    conn = sqlite3.connect(db_name)
+
+    # create a Cursor object
+    cursor = conn.cursor()
 
     # use an f-string to create a filename path from the table name
     filename = f"./data/{table_name}.csv"
 
+    # using the exists method from the os.path module
     # check if our file does not exist and
     # if it does not, warn us and exit our function
-    #?? Patrick - this is using the exists method from the os.path module????
     if(not exists(filename)):
         print(f"HEY! {filename} does not exist!")
         return
@@ -70,7 +63,6 @@ def populate_table(table_name):
 
         # increment our id to the next number
             id = id + 1
-
 
     # the first line of our file has our column names
     # let's grab it out of our list of rows and save to a new var??
@@ -125,7 +117,6 @@ def populate_table(table_name):
     #  insert into table people(id, name, color) values (?,?,?)
     #
     # now let's say we're inserting a row to this table with values
-    # 
     # 101, "Jeff", "Purple"
     # 
     # if we give these values to the sqlite execute function as a list
@@ -137,9 +128,8 @@ def populate_table(table_name):
     # 
     # insert into tale people(id, name, color) values (101, "Jeff", "Purple")
     #
-    # Hopefully this template / placeholder technique will prove useful as you
-    # use it more in other places...  the technique is sometimes known as a
-    # Prepared Statement 
+    # this template / placeholder technique is sometimes known 
+    # as a "Prepared Statement"
 
     # loop through our list of rows and add each one using our sql template
     for row in rows:
@@ -148,12 +138,16 @@ def populate_table(table_name):
         print(f"{insert_sql} {row}")
         cursor.execute(insert_sql, row)
 
-    # use the db connection object we created at the beginning of this script
-    # to "commit" the new rows we just inserted - making them "permanent"
-    #conn.commit()
+    # use the db connection object we created earlier to "commit" 
+    # the new rows we just inserted
+    # conn.commit() makes them "permanent"
 
 # create a list of the tables we want to populate
 tables_to_populate = [ "company", "facility"]
+
+# TODO: Ask Patrick - but first we have to create the connection and the cursor again??
+conn = sqlite3.connect(db_name)
+cursor = conn.cursor()
 
 # loop over the list of tables_to_populate and call our function
 for table in tables_to_populate:

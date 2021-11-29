@@ -1,18 +1,21 @@
 import json
 import sqlite3 
 
-# assume db is in current working folder where script is running
+# we are assuming here that our db is in the current working 
+# folder where our script is running
 db_name = "./UrbanAg.db"
 
-# create a Connection object that represents the db
-conn = sqlite3.connect(db_name)
-conn.row_factory = sqlite3.Row
-
-# create a Cursor object - we'll call its execute() method 
-# to perform SQL commandss
-cursor = conn.cursor()
-
 def table_to_json(table_name):
+    # create a Connection object that represents the db
+    conn = sqlite3.connect(db_name)
+    
+    # TODO: what does row_factory do???
+    conn.row_factory = sqlite3.Row
+
+    # create a Cursor object - we'll call its execute() method 
+    # to perform SQL commands
+    cursor = conn.cursor()
+
     # use an f-string to add our table name into a 
     # SQL statement string
     sql = f"SELECT * FROM {table_name}"
@@ -35,10 +38,10 @@ def table_to_json(table_name):
     # using the json.dumps() function 
     json_data= json.dumps(rowarray_list)
 
-    # save the json string into a file
-    #??? Patrick - am I correct that we are making an empty file here 
-    # called "rowarrays_file" and this variable name stays the same no
-    # matter what the table name is?? And then where does this json file get saved?
+    # save the json string into a file named 
+    # like this: table_name.json
+    # TODO: do we need to use "with open" here???
+
     rowarrays_file = f"{table_name}.json"
     file = open(rowarrays_file, 'w')
     file.write(json_data)
@@ -47,3 +50,9 @@ def table_to_json(table_name):
     #print(json_data, f)
 
     print(f"Here's my JSON:\n {json_data}", file)
+
+# TODO: actually call the table_to_json function!!!
+
+table_to_json("company")
+
+table_to_json("facility")
