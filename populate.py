@@ -141,6 +141,7 @@ def populate_table(table_name):
     # use the db connection object we created earlier to "commit" 
     # the new rows we just inserted
     # conn.commit() makes them "permanent"
+    conn.commit()
 
 # create a list of the tables we want to populate
 tables_to_populate = [ "company", "facility"]

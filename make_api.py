@@ -1,5 +1,6 @@
 from flask import Flask
 import sqlite3
+import json
 
 ######################################
 # Prepare our Sqlite db for use
@@ -18,6 +19,8 @@ web_server = Flask(__name__)
 # Use the route() decorator to bind the URL path '/companies' to 
 # the getCompanies function, so when our web server gets a request for 
 # '/companies' this function will be called
+
+db_name="./UrbanAg.db"
 
 @web_server.route("/companies")
 def getCompanies():
@@ -56,6 +59,54 @@ def getCompanies():
 
     # return our HTML string and some other junk the web needs
     return html, 200, { 'Content-Type': 'text/html', "X-Julie": "awesome" }
+
+
+# this will respond when you point your browser at
+# http://localhost:5000/api/company
+@web_server.route("/api/company")
+def getCompaniesAsJson():
+    # create a Connection object that represents our db
+    conn = sqlite3.connect(db_name)
+
+    # We want our fetchall() function to return sqlite3.row objects
+    # without this, it would reuturn "raw" data in a list 
+    # when we get sqlite3.row objects, we can call the keys()
+    # function on each row to get the names of the columns
+    # this is nice because we can put the names of each
+    # field in our JSON
+    conn.row_factory = sqlite3.Row
+
+    # create a Cursor object
+    cursor = conn.cursor()
+
+
+    # now let's call our database - issue a "select" from 
+    # our companies table and get company names
+    # we'll get the list of companies in the result variable
+    # ??? I think results will be a list of Row objects???
+    cursor.execute("SELECT name, employees FROM company")
+
+    # now fetch the data and save it in memory
+    rows = cursor.fetchall()
+
+    # make an empty list to collect all the rows
+    rowarray_list = []
+
+    # go through all the rows selected above
+    for row in rows:
+        d=dict(zip(row.keys(), row))
+        rowarray_list.append(d)
+
+    # convert our rowarray_list to a json string
+    # using the json.dumps() function 
+    json_data= json.dumps(rowarray_list)
+
+
+    # return our HTML string and some other junk the web needs
+    return json_data, 200, { 'Content-Type': 'application/json' }
+
+
+
 
 if __name__ == '__main__':
     # Run our web server
