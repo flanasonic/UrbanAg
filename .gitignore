@@ -1,0 +1,3 @@
+# Telling git to ignore any db files
+
+*.db
