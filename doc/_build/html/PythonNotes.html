@@ -1,0 +1,979 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="title" content="UrbanAg">
+        <meta name="version" content="">
+        <meta name="copyright" content="2021, Visible Gardens">
+        
+        <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+        
+        <!-- Favicon Icon -->
+        
+
+        
+        <title>Python!</title>
+        
+
+        <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+       
+        
+    <link rel="stylesheet" href="_static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="_static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="_static/css/hover-min.css">
+    <!--<link rel="stylesheet" href="_static/octicons/lib/octicons.css">-->
+    <!--<link rel="stylesheet" href="_static/primer-markdown/lib/user-content.min.css">-->
+    <link rel="stylesheet" href="_static/css/syntax.css" type="text/css" />
+
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    
+      
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      
+    
+      
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      
+    
+
+    
+
+    
+    <style>
+    .jumbotron.geopattern {
+         background-image: url('./');
+         }
+    </style>
+    
+
+    <script type="text/javascript" src="_static/js/bootstrap.min.js"></script>
+    
+    
+
+
+        
+        
+        
+        
+        
+        <!-- Genindex Linktag -->
+        <link rel="index" title="Index" href="genindex.html" />
+        
+        
+        <!-- Search Linktag -->
+        <link rel="search" title="Search" href="search.html" />
+        
+        
+        
+        
+        
+        
+        
+    </head>
+    <body>
+        
+        <header class="site-header">
+            <div class="container">
+                <a id="site-header-brand" href="/" title="UrbanAg">
+                    <i class="fa fa-book" aria-hidden="true"></i> UrbanAg
+                </a>
+                <nav class="site-header-nav" role="navigation">
+                
+                    <a href="index.html" class=" site-header-nav-item hvr-underline-from-center"
+               target="_self"
+               title="UrbanAg">
+                        Documentation
+                    </a>
+                
+                </nav>
+            </div>
+        </header>
+        
+        <section class="jumbotron geopattern" data-pattern-id="PythonNotes">
+            <div class="container">
+                <div id="jumbotron-meta-info">
+                    <h1>Python!</h1>
+                    <span class="meta-info">
+                        
+                        
+                        
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </section>
+        
+        <article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="row">
+                <div class="col-md-8 markdown-body">
+                    
+  <p>Everything I ever learned about Pyton is written HERE.</p>
+<section id="python">
+<h1>Python!<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>Common uses for Python:
+* Web development
+* data analysis
+* file processing
+* machine learning
+* game programming</p>
+<p>[ ] List, Array
+{ } Object
+( ) Function</p>
+<p><strong>object oriented programming (OOP) -</strong>
+the pattern of defining classes and creating objects to represent the responsibilities of a program.</p>
+<p><strong>class -</strong>
+a template for a data type that describes the kinds of information it will hold and how a programmer will interact with it. The keyword <em>class</em> is used to define a class and names are capilized by convention.</p>
+<p>The <em>pass</em> keyword can be used to indicate that the body of the class was intentionally left blank, so we don’t cause an IndentationError.</p>
+<p><strong>object -</strong>
+an instance of a class. Each object can hold different kinds of data.</p>
+<p><strong>variables -</strong>
+names can contain letters and digits, but must begin with a letter or underscore. By convention, variable names are written in all lowercase. The assignment statement gives variable its value. The equals sign “=” is the assignment token.</p>
+<p><strong>data type -</strong>
+the kind information you store in your variable, such as strings, integers, floats, lists. A variable’s type determines what you can do with it and how you can use it. Operations are defined at the type level.</p>
+<p>We can check a variables data type using this syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_variable</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>keywords -</strong>
+Python has 33 keywords, they can’t be used as variable names.</p>
+<p><strong>arithmetic operators -</strong>
+integers and floats can both use +, -, <a href="#id1"><span class="problematic" id="id2">*</span></a>, and /. Strings can use + and <a href="#id3"><span class="problematic" id="id4">*</span></a>. When * is used to repeat a string it is referred to as the “repetition operator.”</p>
+<p><strong>lists -</strong>
+a versatile data type that, in Python, can contain multiple different data types within the same square brackets/ Data types that can be used in lists include numbers, strings, other objects, even other lists. A list can also be empty, like this: []</p>
+<p><strong>functions -</strong>
+reusable blocks of code. Like a recipe, a function keeps the steps for a task in one place. Functions can take <em>arguments</em> that tell Python the values we want to work with.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">some_input1</span><span class="p">,</span> <span class="n">some_input2</span><span class="p">):</span>
+  <span class="c1"># … do something with the inputs …</span>
+  <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+<p><strong>iterable -</strong>
+any object that can return its members one at a time. <em>Sequences</em> and <em>generators</em> are two iterable types commonly used in Python.</p>
+<p><strong>enumerate() -</strong>
+the enumerate() function provides both a counter and the value from an iterable at the same time, saving the step of having to create and incremente our own counter variable. It can use in a loop in almost the same way the original iterable object is used. Instead of putting the iterable directly after in in the for loop, we place it inside the parentheses of enumerate().</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>instantiation -</strong>
+to create an instance of a class, AKA an <em>object</em>. To do so we add () to the name of the class, then assign this new instance to a variable so we can access it later.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+  <span class="k">pass</span>
+  <span class="c1"># pass lets us leave the body of the class blank without causing an IndentationError</span>
+
+<span class="n">ferrari</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>  <span class="c1"># this is a class instantiation</span>
+</pre></div>
+</div>
+<p><strong>type () -</strong>
+the type() function returns the class that the object is an instance of.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">facade_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">Facade</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">facade_type</span><span class="p">)</span>
+  <span class="c1"># prints this: &lt;class &#39;__main__.Facade&#39;&gt;</span>
+  <span class="c1">#  __main__ means “this current file we’re running”</span>
+  <span class="c1"># the output from type() could be read as “the class Facade that was defined</span>
+  <span class="c1"># here, in the script you’re currently running.”</span>
+</pre></div>
+</div>
+<p><strong>method -</strong>
+built-in functionality for a specific data type, it is defined as part of a class. If the method requires an input value it goes inside (). Methods are defined similarly to functions, but indented to indicate they are part of the class. The first argument is <em>self</em>, meaning the instance of the object itself. When we call a method, the object making the calling is automatically passed as the first argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">example</span><span class="p">:</span>
+<span class="n">snack_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;cookie&#39;</span><span class="p">)</span>
+
+<span class="n">example</span><span class="p">:</span>
+<span class="n">shopping_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;Olive oil&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>CLASS VARIABLES:
+Used when we want to make the same data available to every instance of a class. Class variables are defined in the indented part of the class definition. They are accessed using the object.variable syntax.</p>
+<blockquote>
+<div><p>Example:
+class Circle:</p>
+<blockquote>
+<div><p>pi = 3.14   # pi is a class variable
+def area(self, radius):</p>
+<blockquote>
+<div><p>return Circle.pi * radius <a href="#id5"><span class="problematic" id="id6">**</span></a>2</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>INSTANCE VARIABLES:
+Specific to the object they are attached to. We assign them using the same attribute notation used to access class variables, the object.variable syntax (Note - Instance variables and class variables are both considered “attributes” of an object.</p>
+<blockquote>
+<div><p>Example:
+class Store:</p>
+<blockquote>
+<div><p>pass</p>
+</div></blockquote>
+<p>alt_rocks = Store()   # this is our object
+alt_rocks.store_name = “Alt Rocks”</p>
+</div></blockquote>
+<p>Attribute errors:
+If we attempt to access an attribute that is neither a class variable nor an instance variable of the object Python will throw an AttributeError.</p>
+<p>hasattr():
+lets us check whether an object has a given attribute. It returns a boolean - True if it does and False if it not.</p>
+<blockquote>
+<div><p>Syntax:
+hasattr(object, “attribute”)</p>
+</div></blockquote>
+<p>It has two parameters - object and attribute. “Object” is the object we are testing to see if it has the attribute in question. “Attribute” is the name of the attribute we are inquiring about.</p>
+<p>getattr():
+returns the value of a given object and attribute. We can also supply an optional third argument that will be the default if the object doesn’t have the attribute.</p>
+<blockquote>
+<div><p>Syntax:
+getattr(object, “attribute”, default)</p>
+</div></blockquote>
+<p>Constructors:
+Methods that are used to prepare an object being instantiated.</p>
+<p>init method:
+Used to initialize a newly created object. It is called every time the class is instantiated.</p>
+<blockquote>
+<div><p>Example:
+class Animal:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>def __init__(self, voice):</dt><dd><p>self.voice = voice</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>cat = Animal(‘Meow’)
+print(cat.voice) # Output: Meow</p>
+<p>#When an Animal object is created, the instance variable ‘voice’ is created and
+#set to the input value</p>
+</div></blockquote>
+<p>dir() function:
+it’s possible for an object to have some attributes that are not explicitly defined
+in its constructor. dir() lets us investigate an object’s attributes at runtime.</p>
+<p>internal attributes:
+Python automatically adds a number of attributes to all objects that get created.
+These internal attributes are usually indicated by double-underscores.</p>
+<p>__repr__() method:
+let’s us tell Python what we want the string represention of the class to be.
+__repr__() can only have one parameter, self, and must return a string.</p>
+<dl class="simple">
+<dt>COMMENTS:</dt><dd><p>CTRL = / lets you comment out multiple lines of code</p>
+</dd>
+</dl>
+<p>CONTROL STRUCTURES:
+used to test a condition then instruct code to perform an action if true and do something
+else if false. These are all control structures:</p>
+<p>–&gt; Comparison operators: test if a condition is true or false using symbols to compare
+values: &lt;, &gt;, ==, &lt;=, &gt;=, !=</p>
+<p>–&gt; If statements: if, elif, else - test a condition and decide to run a piece of code
+based on whether it is true or not. They start with the if keyword and and end with : to tell the
+computer the statement is finished.</p>
+<p>–&gt; Booleans: data with only 2 values - True or False. Boolean values always start with
+an uppercase letter. Can be used with if statement to test whether condition is True or
+False.</p>
+<p>–&gt; Boolean operators: allow you to test two or more conditions at one time - and, or, not</p>
+<p>–&gt; Try and except: used to handle unexpected or incorrect data types r values from user
+input. They try statements test whether the user inputs a specific data type or a specific
+value. If not, an error will occur. The except statement is triggered to print a message
+about the error.</p>
+<p>WORKING WITH LISTS:
+–&gt; Accessing elements in a list:</p>
+<blockquote>
+<div><p>Example:
+soups = [‘minestrone’, ‘lentil’, ‘pho’, ‘laksa’]
+soups[2]   # ‘pho’</p>
+</div></blockquote>
+<p>–&gt; Multi-dimensional lists:
+Multi-dimensional lists are lists that contain other lists. They can be accessed
+similarly to one-dimensional lists. Instead of a single pair of [] we use an additional
+set for each dimension past the first.</p>
+<blockquote>
+<div><p>Examples:
+List = [[‘apples’, ‘oranges’, ‘lemons’] , [‘mangoes’]]
+List[0][1])   # ‘oranges’</p>
+</div></blockquote>
+<p>–&gt; sorted()
+this function returns a new sorted version of the list.</p>
+<blockquote>
+<div><p>Example:
+def combine_sort(lst1, lst2):</p>
+<blockquote>
+<div><p>unsorted = (lst1 + lst2)
+sortedList = sorted(unsorted)
+return sortedList</p>
+</div></blockquote>
+</div></blockquote>
+<p>–&gt; .remove()
+To use .remove() on a 2D list, call it on the sublist you are modifying and pass
+the value you want to remove in between the parenthesis ().</p>
+<p>–&gt; .insert()
+expects two inputs, the first being a numerical index, followed by any value
+as the second input.</p>
+<p>–&gt; .pop()
+lets us remove elements at a specific index, it takes an optional single input.(Note: .pop() will return the value that was removed! If we want to know what element was deleted, we simply assign a variable to the call of the .pop() method)</p>
+<p>–&gt; .count()
+lets us count the number of times item appears in lst. Note: .count() returns a value!</p>
+<blockquote>
+<div><p>Example:
+def more_than_n(lst, item, n):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>if lst.count(item) &gt; n:</dt><dd><p>return True</p>
+</dd>
+<dt>else:</dt><dd><p>return False</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<p>–&gt; .range()
+accepts starting number, ending number (exclusive), and amount to increment by. range() is unique in that it creates a range object, not just a typical list. To use this object as a list, we have to convert it using the built-in function called list(). Range objects do not need to be converted to lists in order to determine their length.</p>
+<blockquote>
+<div><p>Example:
+my_range2 = range(2, 9, 2)
+# start at 2, end at 9, increment by 2 after each loop</p>
+<p>Example:
+def every_three_nums(start):</p>
+<blockquote>
+<div><p>return list(range(start, 101, 3)</p>
+</div></blockquote>
+</div></blockquote>
+<p>–&gt; .sort()
+Lists can be sorted 2 ways - either by using a method or a built-in function. .sort() modifies a list directly. Note: It does not return a value and thus does not need to be assigned to a variable. If we do assign the result of the method, it would assign the value of None to the variable. When sorting a 2D list with .sort(), the list by default will be sorted by the first element in each sublist.</p>
+<blockquote>
+<div><p>Example:</p>
+</div></blockquote>
+<p>–&gt; .sorted()?????
+.sorted() function generates a new list rather than modifying the one that already exists.
+It comes before a list, instead of after as all built-in functions do.</p>
+<blockquote>
+<div><p>Syntax:</p>
+</div></blockquote>
+<p>–&gt; Slicing Lists:</p>
+<blockquote>
+<div><p>Syntax:
+myList[START_NUMBER:END_NUMBER]</p>
+</div></blockquote>
+<p>–&gt; .zip()
+takes two (or more) lists as inputs and returns an object that contains
+a list of pairs. Each pair contains one element from each of the inputs.</p>
+<p>The object can be converted to a list using the built-in function list().
+With 2D lists, our inner lists don’t use square brackets [] around the values
+because they have been converted into tuples.</p>
+<p>TUPLES:
+A data structure that allows us to store multiple pieces of data, similar to lists. They are often
+used to store data that is meant to be grouped together, but is not necessarily similar. Unlike lists,
+tuples are immutable.</p>
+<p>We use () for tuples, rather than the square brackets used for lists.</p>
+<blockquote>
+<div><p>Example:
+my_info = (‘Julie’, “Park Slope”, “Developer”)</p>
+</div></blockquote>
+<p>–&gt; Unpacking tuples
+“Unpacking” a tuple means you can store the elements inside the tuple in variables.</p>
+<blockquote>
+<div><p>Example:
+name, neighborhood, occupation = my_info
+name –&gt; Julie
+neighborhood –&gt; Park Slope
+occupations –&gt; Developer</p>
+</div></blockquote>
+<p>A one element tuple must have a trailing comma, like this one_element_tuple = (Julie,)</p>
+<p>LOOPS:
+Keywords that let you repeat blocks of code until a condition is met.</p>
+<p>–&gt; For Loops
+repeat a block of code a fixed # of times</p>
+<blockquote>
+<div><p>Syntax:
+for &lt;temporary variable&gt; in &lt;collection&gt;:</p>
+<blockquote>
+<div><p>&lt;action&gt;</p>
+</div></blockquote>
+<p>Example:
+for i in range(1,21):
+print(i)</p>
+<p>Example:
+password = input(‘Please provide a password’)
+num_ct = 0</p>
+<dl>
+<dt>for letter in password:</dt><dd><dl class="simple">
+<dt>if letter.isnumeric() == True</dt><dd><p>num_ct += 1</p>
+</dd>
+</dl>
+<p>print(‘Your password contains ’, num_ct, ‘ digits)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>–&gt; While Loops
+perform a set of instructions as long as a given condition is true.</p>
+<blockquote>
+<div><p>Syntax:
+while &lt;conditional statement&gt;:</p>
+<blockquote>
+<div><p>&lt;action&gt;</p>
+</div></blockquote>
+</div></blockquote>
+<p>LOOP CONTROL STATEMENTS:</p>
+<p>–&gt; break
+lets you terminate the loop when a certain condition is  met. Break is
+usually paired with a conditional</p>
+<p>–&gt; continue
+skips the current iteration of a loop when a condition is found true.
+Continue is usually paired with a conditional.</p>
+<blockquote>
+<div><p>Example:
+ages = [12, 38, 34, 26, 21, 19, 67, 41, 17]</p>
+<blockquote>
+<div><dl class="simple">
+<dt>for age in ages:</dt><dd><dl class="simple">
+<dt>if age &lt; 21:</dt><dd><p>continue</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>print(age)</p>
+</div></blockquote>
+<p>Example:
+sales_data = [[12, 17, 22], [2, 10, 3], [5, 12, 13]]
+scoops_sold = 0</p>
+<dl>
+<dt>for location in sales_data:</dt><dd><p>print(location)
+for element in location:</p>
+<blockquote>
+<div><p>scoops_sold = scoops_sold + element</p>
+</div></blockquote>
+</dd>
+</dl>
+<p>print(“A total of”, scoops_sold, “scoops were sold across all locations.”)</p>
+</div></blockquote>
+<p>LIST COMPREHENSIONS:
+list comprehensions let use write loops using less code????</p>
+<blockquote>
+<div><p>Syntax:
+new_list = [&lt;expression&gt; for &lt;element&gt; in &lt;collection&gt;]</p>
+</div></blockquote>
+<p>list comprehensions can also include conditional logic.</p>
+<p>FUNCTIONS:</p>
+<p>The parameter is the name defined in the parenthesis of the function and
+can be used in the function body. (Parameters are treated like variables
+within a function.)</p>
+<p>The argument is the data that is passed in when we call the function and
+assigned to the parameter name. (Arguments are like values when we call the
+function)</p>
+<p>3 types of arguments
+- Positional: can be called by their position in the function definition.
+- Keyword: can be called by their name.
+- Default: are given default values.</p>
+<p>Functions can also return a value to the program so that this value can be
+modified or used later. We use the Python keyword return to do this.</p>
+<p>BUILT-IN FUNCTIONS:
+max(), min(), round(), len()</p>
+<p>STRINGS:
+A string can be thought of as a list of characters. Each character has an index.</p>
+<p>Unlike a regular list, strings are immutable - they cannot be changed once they are created.
+We can create new strings from a string, but we cannot change the string itself.</p>
+<p>–&gt; Concatentation:
+A string can be concatenated with another string using +</p>
+<p>–&gt; Slicing:
+We can “slice” a single character or more than one.</p>
+<blockquote>
+<div><p>Syntax:
+string[first_index:last_index]</p>
+</div></blockquote>
+<p>We can also use negative indices to count backward from the end of the string.
+The last character is [-1]</p>
+<p>–&gt; Escape characters:
+A special character can be used in s string when we add a backslash in front of it.</p>
+<blockquote>
+<div><p>Example:</p>
+</div></blockquote>
+<p>–&gt; Iterating through stings
+Because strings are lists, we can iterate through them using for or while loops.</p>
+<blockquote>
+<div><p>Example:
+favorite_fruit = “blueberry”
+counter = 0
+for character in favorite_fruit:</p>
+<blockquote>
+<div><p>if character == “b”:
+counter = counter + 1
+print(counter)</p>
+</div></blockquote>
+<p>Example:
+def letter_check(word, letter):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>for character in word:</dt><dd><dl class="simple">
+<dt>if character == letter:</dt><dd><p>return True</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>return False</p>
+</div></blockquote>
+</div></blockquote>
+<p>Note - when using a for loop to iterate through a string, we don’t need to initialize
+the variable. The for loop statement will initialize the variable to the first character
+of the string.</p>
+<p>–&gt; In
+We can also use “in” to check if one string is part of another string.</p>
+<blockquote>
+<div><p>Example:</p>
+</div></blockquote>
+<p>STRING METHODS:
+String methods enable us to perform complicated tasks on strings quickly and efficiently. String methods can only create new strings, they do not change the original string.</p>
+<p>A string method is called at the end of a string and each one has its own method specific arguments.</p>
+<blockquote>
+<div><p>Syntax: string_name.string_method(arguments)</p>
+</div></blockquote>
+<p>–&gt; .split()
+Splits a string into a list of items. If an argument is passed, that value is used as the delimiter on which to split the string. If no argument is passed, the split will be made where there is whitespace.</p>
+<blockquote>
+<div><p>Example:
+text_list = text.split(“,”)</p>
+</div></blockquote>
+<p>To split by something in a string that is not necessarily a character, we can use escape sequences.</p>
+<blockquote>
+<div><p>n Newline - splits multi-line string by line breaks
+t Horizontal Tab - splits string by tabs</p>
+<p>Example:
+chorus_lines = smooth_chorus.split(’n’)</p>
+</div></blockquote>
+<p>–&gt; .join()
+takes a list of strings and creates a string. It acts on the delimiter you want to join with, therefore the list you want to join has to be the argument.</p>
+<blockquote>
+<div><p>Syntax:
+‘delimiter’.join(list_you_want_to_join)</p>
+</div></blockquote>
+<p>Any string can be used as a delimiter to join together a list of strings.</p>
+<p>Comma is often used because it lets us create a string of comma separated
+variables, or CSV.</p>
+<p>You can also join using escape sequences, such as n as the delimiter</p>
+<p>–&gt; .strip()
+cleans off wnoise from the beginning and end of a string. It can be used to
+remove whitespace or a character argument.</p>
+<blockquote>
+<div><p>Example:</p>
+</div></blockquote>
+<p>–&gt; .replace()
+replaces all instances of a character/string in a string with another
+character/string.</p>
+<p>it takes two arguments and replaces all instances of the first
+argument in a string with the second argument.</p>
+<blockquote>
+<div><p>Syntax:
+string_name.replace(character_being_replaced, new_character)</p>
+<p>Example:</p>
+</div></blockquote>
+<p>–&gt; Find
+searches a string for a character/string and returns the index value that character/string is found at.</p>
+<p>it takes a string as an argument and searches the string it was run on for that string. It then returns the first index value where that string is located.</p>
+<p>–&gt; Format
+allows you to interpolate a string with variables. It replaces empty brace {} placeholders in the string with its arguments.</p>
+<blockquote>
+<div><p>Syntax:
+string_name.format(argument1, argument2)</p>
+</div></blockquote>
+<p>.format() can be made even more legible by including keywords. Using keywords allows us list our arguments in any order, not just the order we want them to appear in the string.</p>
+<p>MODULES:
+A module is a collection of Python declarations intended broadly to be used as a tool. Modules are also often referred to as “libraries” or “packages” — a package is really a directory that holds a collection of modules.</p>
+<blockquote>
+<div><p>Syntax:
+from module_name import object_name</p>
+</div></blockquote>
+<p>Sometimes the module name and the name of the object you want to import are the same.</p>
+<ul class="simple">
+<li><p>Namespaces: A namespace isolates the functions, classes, and variables defined in the module from the code in the file doing the importing. Your local namespace, meanwhile, is where your code is run. Python defaults to naming the namespace after the module being imported.</p></li>
+</ul>
+<dl class="simple">
+<dt>We can also use aliases to give the module our own name.</dt><dd><p>Syntax:
+import module_name as name_you_pick_for_the_module</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>Decimal is a good module for dealing with the weird formatting that floating point arithmetic can cause</p></li>
+</ul>
+<p>datetime module
+required: year, month, day
+optional: hour, minute, second, microseconds, timezone</p>
+<p>days of week or numbered 0-6 with 0 as Monday</p>
+<blockquote>
+<div><p>Example:
+birthday = datetime(1976, 7, 31, 9, 30, 15)</p>
+<p>birthday.year
+prints this &gt;&gt;&gt; 1976</p>
+</div></blockquote>
+<p>datetime.now()</p>
+<p>we can also use subtract with datetime using the minus sign, this is calle datetime delta.but dates can’t be added or multiplied</p>
+<p>–&gt; strptime() function allows us to take a string and parse through it to convert it into a datetime. (The ‘P’ stands for “parse.)</p>
+<p>–&gt; strftime() function allows to take a datetime and convert it into a string.</p>
+<p>FILES:
+like variables, files and classes have scope. Even files inside the same directory do not have access to each other’s variables, functions, classes, or any other code. Files are actually modules, so you can give a file access to another file’s content using the import statement</p>
+<p>DICTIONARIES:
+A python dictionary is an unordered collection of items. It contains data as a set of key: value pairs. Values can be any type – string, integer, list, another dictionary, boolean, etc. Keys, however, must always be an immutable data type, such as strings, numbers, or tuples.</p>
+<blockquote>
+<div><p>Example:
+my_dictionary = {“song”: “Estranged”, “artist”: “Guns N’ Roses”}</p>
+</div></blockquote>
+<p>Access a value in a dictionary:
+Values can be accessed by placing the key within square brackets next to the dictionary.</p>
+<blockquote>
+<div><p>Example:
+zodiac_elements[“earth”]</p>
+</div></blockquote>
+<p>Access a value in a nested dictionary:
+In order to access the value of any key in the nested dictionary, use indexing [] syntax.</p>
+<blockquote>
+<div><p>Dict = {‘Dict1’: {1: ‘Geeks’}, ‘Dict2’: {‘Name’: ‘For’}}</p>
+<p>Dict[‘Dict1’][1]      # ‘Geeks’
+Dict[‘Dict2’][‘Name’] # ‘For’</p>
+</div></blockquote>
+<p>–
+# Creating a Multi-Dimensional List
+# (By Nesting a list inside a List)
+List = [[‘Geeks’, ‘For’] , [‘Geeks’]]</p>
+<p># accessing an element from the
+# Multi-Dimensional List using
+# index number
+print(“Accessing a element from a Multi-Dimensional list”)
+print(List[0][1])
+print(List[1][0])
+–</p>
+<p>Values can be written by placing a key within square brackets next to the dictionary and using the assignment operator (=). If the key already exists, the old value will be overwritten.</p>
+<blockquote>
+<div><p>Example:
+my_dictionary[“song”] = “Paradise City”</p>
+</div></blockquote>
+<p>Python will throw a KeyError if we try to access a key that does not exist. There are a few ways to check for the existence of a key, so we can avoid this error</p>
+<p>–&gt; with “in” using an if statement</p>
+<blockquote>
+<div><p>Example:
+key_to_check = “Landmark 81”</p>
+<dl class="simple">
+<dt>if key_to_check in building_heights:</dt><dd><p>print(building_heights[“Landmark 81”])</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>– &gt; or by just using “in” to return a boolean value</p>
+<blockquote>
+<div><p>Example:
+inventory = {“iron spear”: 12, “invisible knife”: 30, “needle of ambition”: 10}</p>
+<p>print(“the peacemaker” in inventory)
+# returns False because this key does not exist</p>
+</div></blockquote>
+<p>–&gt; try/except</p>
+<blockquote>
+<div><p>Example:
+key_to_check = “Landmark 81”
+try:</p>
+<blockquote>
+<div><p>print(building_heights[key_to_check])</p>
+</div></blockquote>
+<dl class="simple">
+<dt>except KeyError:</dt><dd><p>print(“That key doesn’t exist!”)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>–&gt; .get()
+Takes a key and searches for the corresponding value. By default, it returns None if the key does not exist.</p>
+<blockquote>
+<div><p>Example:
+building_heights.get(“My House”)
+# returns the value corresonding to the key “My House”
+# returns None if the key doesn’t exist</p>
+</div></blockquote>
+<p>With. get() we can also specify a value to return if they key does not exist.</p>
+<blockquote>
+<div><p>Example:
+building_heights.get(‘Mt Olympus’, 0)
+# returns 0 if they key doesn’t exist</p>
+</div></blockquote>
+<p>–&gt; .pop()
+lets us delete a key:value pair from a dictionary as long as we have the key value. it takes a key as an argument and removes it from the dictionary. At the same time, it also returns the value that it removes from the dictionary.</p>
+<blockquote>
+<div><p>Example:
+old_dict.pop(“old key”)</p>
+</div></blockquote>
+<p>It also let us provide a default value to return if the key does not exist.</p>
+<blockquote>
+<div><p>Example:
+old_dict.pop(“old key”, “key doesn’t exist”)</p>
+</div></blockquote>
+<p>To pop a value from one dictionary and assign it to another, you can use syntax like:</p>
+<blockquote>
+<div><p>new_dict[“new key”] = old_dict.pop(“old key”)</p>
+</div></blockquote>
+<p>–&gt; list() function
+the built-in list function lets us get a list of the keys in a dictionary</p>
+<p>Merging Dictionaries with .update()
+Python makes it easy to combine two dictionaries using the .update() function.</p>
+<blockquote>
+<div><p>Example:
+dict1 = {‘color’: ‘blue’, ‘shape’: ‘circle’}
+dict2 = {‘color’: ‘red’, ‘number’: 42}</p>
+<p>dict1.update(dict2)</p>
+<p># dict1 is now {‘color’: ‘red’, ‘shape’: ‘circle’, ‘number’: 42}</p>
+<p>For dict1.update(dict2), the key-value pairs of dict2 will be written into
+the dict1 dictionary. For keys in both dict1 and dict2, the value in dict1
+will be overwritten by the corresponding value in dict2.</p>
+</div></blockquote>
+<p>Key-Value Methods:
+there are multiple methods that return objects that contain the dictionary keys and values. they don’t let us modify the dictionary, but are useful as they can be used to iterate through keys and values in dictionaries.</p>
+<p>–&gt; .keys()
+returns the keys through a dict_keys object.</p>
+<p>–&gt; .values()
+returns the values through a dict_keys objects</p>
+<p>–&gt; .items()
+returns a dict_list object. Each element is a tuple consisting of: (key, value). It can also be useful for iteration.</p>
+<blockquote>
+<div><p>Example:
+pct_women_in_occupation = {“CEO”: 28, “Engineering Manager”: 9, “Pharmacist”: 58,
+“Physician”: 40, “Lawyer”: 37, “Aerospace Engineer”: 9}</p>
+<dl class="simple">
+<dt>for role, value in pct_women_in_occupation.items():</dt><dd><p>print(“Women make up ” + str(value) + ” percent of ” + str(role) + “s”)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>List comprehension:
+We can also create a dictionary using a list comprehension.</p>
+<blockquote>
+<div><p>Syntax:
+new_dict = {key:value for key, value in zip(key_list, value_list)}</p>
+<p>Example:</p>
+<p>Use a list comprehension to create a dictionary called plays that goes through zip(songs, playcounts) and creates a song:playcount   pair for each song in songs and each playcount in playcounts</p>
+<p>songs = [“Like a Rolling Stone”, “Satisfaction”, “Imagine”, “What’s Going On”, “Respect”, “Good Vibrations”]</p>
+<p>playcounts = [78, 29, 44, 21, 89, 5]</p>
+<p>plays = {song:playcount for [song, playcount] in zip(songs, playcounts)}</p>
+</div></blockquote>
+<p>FILES:</p>
+<p>Reading a File:</p>
+<p>.open()
+We use .open() to read a file. This creates a file object that points to our text file. By default it opens the file in read-mode. We don’t need to indicate this, but we can opt to by passing second argument, ‘r’, to open().</p>
+<blockquote>
+<div><p>Example:
+with open(‘real_cool_document.txt’) as cool_doc:</p>
+</div></blockquote>
+<p>.read()
+We can then use .read() to read the contents and save the result to a variable as a single string.</p>
+<blockquote>
+<div><p>Example:
+with open(‘real_cool_document.txt’) as cool_doc:</p>
+<blockquote>
+<div><p>cool_contents = cool_doc.read()
+print(cool_contents)</p>
+</div></blockquote>
+</div></blockquote>
+<p>.readlines()
+Lets us iterate through a file line by line and store each line in a variable.</p>
+<blockquote>
+<div><p>Example:
+with open(‘keats_sonnet.txt’) as keats_sonnet:
+for line in keats_sonnet.readlines():</p>
+<blockquote>
+<div><p>print(line)</p>
+</div></blockquote>
+</div></blockquote>
+<p>“parsing” or “parsed” means to make something understandable. For programming this is converting information into a format that’s easier to work with. So the phrase “parsed as a string” means we are taking the data from the csv file and turning it into strings. This is important in that we now have a long string and will need to convert it if we want to utilize the numbers within it.</p>
+<p>In Python we can convert that data into a dictionary using the csv library’s DictReader object.</p>
+<p>.readline()
+When we don’t want to iterate through a whole file, we can use .readline() to read a single line at a time.</p>
+<blockquote>
+<div><p>Example:
+with open(‘millay_sonnet.txt’) as sonnet_doc:</p>
+<blockquote>
+<div><p>first_line = sonnet_doc.readline()
+second_line = sonnet_doc.readline()
+print(second_line)</p>
+</div></blockquote>
+</div></blockquote>
+<p>.write()
+lets us create a file, as well as write over or just append an existing file.</p>
+<p>‘w’ mode:
+to open a file in write-mode, we pass ‘w’ to open() as our second argument. Note: If the file already exists, this will completely write over it!!! We can then use .write() to indicate the text we want.</p>
+<blockquote>
+<div><p>Syntax:
+with open(‘file_to_write.txt’, ‘w’) as file_object:</p>
+<blockquote>
+<div><p># indent</p>
+</div></blockquote>
+<p>Example:
+with open(‘bad_bands.txt’, ‘w’) as bad_bands_doc:</p>
+<blockquote>
+<div><p>bad_bands_doc.write(“Back Street Boys”)</p>
+</div></blockquote>
+</div></blockquote>
+<p>‘a’ mode:
+to append a file, rather than completely write over it, we pass ‘a’ as the second argument in open(). We then use .write() to indicate the text we want to add. This adds a new line with our text to the end of the file.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>with open(‘cool_dogs.txt’, ‘a’) as cool_dogs_file:</dt><dd><p>cool_dogs_file.write(‘Air Buddy’)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>WITH
+The with keyword invokes a “context manager” for the file that we’re calling open() on. It takes care of opening the file when we call open() and then closing it after we leave the indented block. Since the files exist outside our Python script, we need to tell Python when we’re done with them so it can close the connection to that file. Leaving a file connection open unnecessarily can affect performance or impact other programs on your computer that might be trying to access that file.</p>
+<p>The with syntax replaces older ways to access files where you need to call .close() on the file object manually. We can still open up a file and append to it with the old syntax, as long as we remember to close the file connection afterwards.</p>
+<blockquote>
+<div><p>Syntax (the old way):</p>
+<p>fun_cities_file = open(‘fun_cities.txt’, ‘a’)</p>
+<p># We can now append a line to “fun_cities”.
+fun_cities_file.write(“Montréal”)</p>
+<p># But we need to remember to close the file
+fun_cities_file.close()</p>
+</div></blockquote>
+<p>** Text files aren’t the only thing that Python can read, but they’re the only thing that we don’t need any additional parsing library to understand.</p>
+<p>Reading a CSV File:
+CSV files are an example of a text file that impose a structure to their data. Even though we can read them, there are ways to access the data in formats better suited for programming purposes. In Python, we can convert the data into a dictionary usig the csv library’s DictReader object.</p>
+<p>We call all files with a list of different values a CSV file and then use different delimiters (like a comma or tab) to indicate where the different values start and stop.</p>
+<blockquote>
+<div><p>Example:</p>
+<p>users.csv</p>
+<p>Name,Username,Email
+Roger Smith,rsmith,wigginsryan&#64;yahoo.com
+Michelle Beck,mlbeck,hcosta&#64;hotmail.com
+Ashley Barker,a_bark_x,a_bark_x&#64;turner.com</p>
+<p>import csv</p>
+<p>list_of_email_addresses = []
+with open(‘users.csv’, newline=’’) as users_csv:</p>
+<blockquote>
+<div><p>user_reader = csv.DictReader(users_csv)
+for row in user_reader:</p>
+<blockquote>
+<div><p>list_of_email_addresses.append(row[‘Email’])</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>Steps:
+1. import the csv library, so we can access the tools to parse our CSV file
+2. create an empty list, which we’ll later populate with data from our CSV
+3. open up the CSV file in a temporary variable, include any optional additional arguments. (In our example, we’re passing the       keyword argument newline=’’ to the file opening open() function so we don’t mistake a line break in a data field for a new row inour CSV)
+5. use csv.DictReader() to convert the lines of our CSV file to Python dictionaries. By default, the</p>
+<blockquote>
+<div><p>keys of the dictionary are the entries in the first line of our CSV file.</p>
+</div></blockquote>
+<p>Writing a CSV File:</p>
+<blockquote>
+<div><p>Example:</p>
+<p>access_log = [{‘time’: ‘08:39:37’, ‘limit’: 844404, ‘address’: ‘1.227.124.181’}, {‘time’: ‘13:13:35’,
+‘limit’: 543871, ‘address’: ‘198.51.139.193’}, {‘time’: ‘19:40:45’, ‘limit’: 3021, ‘address’: ‘172.1.254.208’}]</p>
+<p>fields = [‘time’, ‘address’, ‘limit’]</p>
+<p>import csv</p>
+<dl>
+<dt>with open(‘logger.csv’, ‘w’) as logger_csv:</dt><dd><p>log_writer = csv.DictWriter(logger_csv, fieldnames=fields)</p>
+<p>log_writer.writeheader()
+for item in access_log:</p>
+<blockquote>
+<div><p>log_writer.writerow(item)</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p>Steps:
+1. import the csv library
+2. open the CSV file in a temporary variable, include any optional additional arguments. (In our example, we pass ‘w’ to open the file in write-mode.)
+3. create an instance of csv.DictWriter() and save it to new variable. Pass the arugments (In our example, we pass logger_csv as the first argument, and then fields as a keyword argument to the keyword fieldnames.)
+4. write the header using the .writeheader() method.
+5. iterate through the list and add each element to the CSV using log_writer.writerow().</p>
+<p>Reading a JSON File:</p>
+<p>import json</p>
+<dl class="simple">
+<dt>with open(‘message.json’) as message_json:</dt><dd><p>message = json.load(message_json)</p>
+</dd>
+</dl>
+<p>print(message[‘text’])</p>
+<ol class="arabic simple">
+<li><p>import the json library</p></li>
+<li><p>Open up the JSON file in a temporary variable, include any optional additional arguments.</p></li>
+<li><p>Parse the open file using json.load() to create a Python dictionary and save it to a new variable.</p></li>
+<li><p>To print out a key or value, include it in parentheses inside square brackets</p></li>
+</ol>
+<p>Writing a JSON File:</p>
+</section>
+
+
+                    <!-- Comments -->
+                    
+                </div>
+                <div class="col-md-4 toc">
+                    <h3>Table Of Contents</h3>
+                    <div id="toc">
+                        
+                        <ul>
+<li><a class="reference internal" href="#">Python!</a></li>
+</ul>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        
+        <footer class="container">
+            <div class="site-footer">
+                <div class="copyright pull-left">
+                    
+                    &#169; Copyright 2021, Visible Gardens.
+                    
+                </div>
+                <div class="source_code">
+                    
+                    <a href="javascript:window.scrollTo(20,20)">
+                        <i class="fa fa-arrow-up" title="To The Top" aria-hidden="true"></i>
+                    </a>
+                    
+                </div>
+                
+                <div class="sphinx pull-right">
+                    
+                    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.1
+                    
+                </div>
+                
+            </div>
+            
+        </footer>
+        
+        
+        
+     
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script> 
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script> 
+    <script src="_static/jquery.js"></script> 
+    <script src="_static/underscore.js"></script> 
+    <script src="_static/doctools.js"></script> 
+     
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <script type="text/javascript" src="_static/js/script.js"></script>
+    <script type="text/javascript" src="_static/js/underscore-min.js"></script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+
+    
+    <script type="text/javascript" src="_static/js/geopattern.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.geopattern').each(function(){
+                var pattern = GeoPattern.generate($(this).data('pattern-id'));
+                $(this).css('background-image', pattern.toDataUrl());
+                //$(this).geopattern($(this).data('pattern-id'));
+            });
+        });
+    </script>
+    
+
+        
+    </body>
+</html>

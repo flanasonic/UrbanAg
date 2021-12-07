@@ -34,30 +34,36 @@ def run_sql_script(script_prefix, table_name):
     file_contents = file_handle.read()
     cursor.execute(file_contents)
 
-# make a list of all the tables we would like to create
-# in the order we would like to create them
-tables = [
-    "company", 
-    "facility"
-    ]
 
 # loop through the list of table names and call the function
 # that gets their drop table script and drops the table if it exists
 # then gets their create_table script and runs it...
-for table_name in tables:
-    print(f"   dropping table {table_name} if it exists...")
-    run_sql_script("drop", table_name)
-    print(f"   creating table {table_name}...")
-    run_sql_script("create", table_name)
 
-    # print a list of the tables that are now in our database
-    print(" ")
-    print("Dababase: " + db_name + " now has these tables:")
+tables = ["company", 
+        "facility"]
+
+def drop_create(tables):
+    # make a list of all the tables we would like to create
+    # in the order we would like to create them
+
+    for table_name in tables:
+        print(f"   dropping table {table_name} if it exists...")
+        run_sql_script("drop", table_name)
+        print(f"   creating table {table_name}...")
+        run_sql_script("create", table_name)
+
+        # print a list of the tables that are now in our database
+        print(" ")
+        print("Dababase: " + db_name + " now has these tables:")
+
+
 
 # sqlite_master contains info about what's in our db
 # we want our query to include just the tables with our data,
-# so we exclusd any tables where name contains the word "sqlite"
+# so we exclude any tables where name contains the word "sqlite"
 # TODO: Ask Patrick - but first we have to create the connection and the cursor again??
+
+def 
 conn = sqlite3.connect(db_name)
 cursor = conn.cursor()
 results = cursor.execute("SELECT name FROM  sqlite_master  WHERE type ='table' AND name NOT LIKE 'sqlite_%';")
