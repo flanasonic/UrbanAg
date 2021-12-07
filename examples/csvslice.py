@@ -6,6 +6,8 @@ import argparse
 
 # Create command line arguments for input filename columns to select
 # and output filename
+# Tutorial on argparse
+# https://docs.python.org/3/howto/argparse.html
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", help="csv file to input", required=True)
 parser.add_argument("-c", "--columns", help="list of columns to select", required=True)
