@@ -1,0 +1,15 @@
+[Paths]
+project_dir: ../../..
+web_dir: ../..
+
+[Database]
+db_file: UrbanAg.db
+
+[DataFiles]
+basedir: ${Paths:project_dir}/data
+
+[StaticFiles]
+basedir: ${Paths:web_dir}/dist
+
+[ClientSource]
+basedir: ${Paths:web_dir}/src/client

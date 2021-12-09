@@ -1,12 +1,14 @@
 {
   "include": [
-    "src/**/*"
+    "src/client/**/*"
   ],
   "exclude": [
     "node_modules/*",
-    "public/*"
+    "src/client/static/*",
+    "src/server/*"
   ],
   "compilerOptions": {
+    "baseUrl": "src/client",
     "moduleResolution": "node",
     "target": "es2017",
     "importsNotUsedAsValues": "error",
@@ -17,6 +19,11 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["svelte"],
     "declaration": true,
-    "declarationDir": "dist"
+    "declarationDir": "dist",
+    "lib": [
+      "ESNext",
+      "DOM",
+      "WebWorker"
+      ]
   }
 }

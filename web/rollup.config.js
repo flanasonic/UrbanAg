@@ -1,11 +1,20 @@
+import alias from '@rollup/plugin-alias'
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import typescript from 'rollup-plugin-typescript2';
+import workerLoader from 'rollup-plugin-web-worker-loader';
+import sveltePreprocess from 'svelte-preprocess';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import copy from 'rollup-plugin-copy';
+import { writeFileSync } from 'fs';
 
 const production = !process.env.ROLLUP_WATCH;
+const extensions = [
+    '.js', '.jsx', '.ts', '.tsx',
+];
 
 function serve() {
 	let server;
@@ -29,33 +38,45 @@ function serve() {
 }
 
 export default {
-	input: 'src/main.js',
+	input: 'src/client/main.ts',
 	output: {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		file: 'dist/js/bundle.js'
 	},
 	plugins: [
 		svelte({
-			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production
-			}
+			preprocess: sveltePreprocess({ sourceMap: !production }),
+			compilerOptions: { dev: !production }
 		}),
-		css({ output: 'bundle.css' }),
+		css({
+			output: (styles, styleNodes) => { writeFileSync('dist/css/bundle.css', styles); }
+		}),
 		resolve({
+			extensions,
 			browser: true,
 			dedupe: ['svelte']
 		}),
 		commonjs(),
+		workerLoader({extensions}),
+		typescript(),
+		alias({
+			entries: [
+				{ find: /^lib(\/|$)/, replacement: `${__dirname}/src/client/lib/` },
+				{ find: /^components(\/|$)/, replacement: `${__dirname}/src/client/components/` }
+			]
+		}),
+
+		copy({
+			targets: [
+				{ src: "src/client/static/*", dest: "dist" }
+			]
+		}),
 
 		// Calls`npm run start` once
 		!production && serve(),
 		!production && livereload('dist'),
-
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
 		production && terser()
 	],
 	watch: {
